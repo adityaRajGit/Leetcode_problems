@@ -1,10 +1,10 @@
 class Solution {
 public:
-    int numJewelsInStones(string jewels, string stones) {
-        int num = 0;
-    for (int i = 0; i < jewels.size(); i++){
-        num += count(stones.begin(), stones.end(), jewels[i]);
-    }
-    return num;
+     int numJewelsInStones(string J, string S) {
+        vector<int> map(128, 0);
+        int res = 0;        
+        for (char& c : J) map[c]++;
+        for (char& c : S) if (map[c]) res++; 
+        return res;
     }
 };
